@@ -9,9 +9,11 @@
 
   <body>
     <h1 id="main-heading">jQuery</h1>
+    <!-- jqery image -->
     <img class="jquery" src="images/jquery.png" alt="jquery" />
+    <button type="button" id="btn-hide-show">Hide / Show</button>
     <main id="main">
-      <p>This is a paragraph and <span>span</span></p>
+      <p id="body-p">This is a paragraph and <span>span</span></p>
       <a href="https://wwww.google.com">Go to google</a>
     </main>
     <table>
@@ -27,23 +29,47 @@
       </tr>
     </table>
 
-    <div class="set">
+    <div class="grandparent">
       <!-- <button><a href="https://www.google.com">Link</a></button>
       <button>Hide</button>
       <button>Show</button> -->
       <div class="parent">
         <div class="child red-box"></div>
+        <button class="btn-fade-out">fade out</button>
         <div class="child green-box"></div>
+        <button class="btn-fade-in">fade in</button>
         <div class="child blue-box"></div>
+        <button class="btn-fade-toggle">fade toggle</button>
         <div class="child yellow-box"></div>
+        <button class="btn-fade-to">fade to</button>
       </div>
     </div>
+    <div class="slide-panels">
+      <div class="slide-upper-panel">
+        <p class="box" id="slide-p">Click to slide down/up the panel</p>
+        <div class="slide-c box" id="slide-c-u">Hello World</div>
+      </div>
+      <div class="slide-lower-panel">
+        <p class="slide-p-down box">Click to slide down</p>
+        <p class="slide-p-up box">Click to slide up</p>
+      </div>
+      <div class="slide-c box" id="slide-c-l">Hello World</div>
+    </div>
+    <section class="parent">
+      <div class="child grey-box"></div>
+      <button class="btn-anim" id="btn-anim-grey" type="button">
+        Animate grey
+      </button>
+      <div class="child black-box"></div>
+      <button class="btn-anim" id="btn-anim-black" type="button">
+        Animate black
+      </button>
+    </section>
 
-    <button class="move-div">Move divs</button>
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

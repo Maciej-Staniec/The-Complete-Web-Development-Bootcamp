@@ -49,7 +49,7 @@ $(".jquery").toggleClass("hidden");
 // Get text content of the selected element
 console.log($("p").text());
 // Set text content of the selected element
-$("p").text("Set text content with text()");
+$(".body-p").text("Set text content with text()");
 // Get HTML content of the selected element
 console.log($("#main").html());
 // Set HTML content of the selected element
@@ -65,3 +65,79 @@ $("a").attr("href", "https://www.yahoo.co.uk");
 $(".green-box").click(function () {
   console.log("Click");
 });
+
+// Hide and Show elements
+$(".parent").hide();
+$(".parent").show();
+// Hide/Show toggle
+$("#btn-hide-show").click(function () {
+  $(".jquery").toggle("slow");
+});
+
+// Fade out
+$(".btn-fade-out").click(function () {
+  $(".red-box").fadeOut("slow");
+});
+
+// Fade in
+$(".btn-fade-in").click(function () {
+  $(".red-box").fadeIn();
+});
+
+// Fade toggle
+$(".btn-fade-toggle").click(function () {
+  $(".blue-box").fadeToggle(3000);
+});
+
+// Fade to
+$(".btn-fade-to").click(function () {
+  $(".yellow-box").fadeTo(4000, 0.3);
+});
+
+// Slide Toggle
+$("#slide-p").click(function () {
+  $("#slide-c-u").slideToggle();
+});
+
+// Slide down
+$(".slide-p-down").click(function () {
+  console.log("click");
+  $("#slide-c-l").slideDown();
+});
+
+// Slide up
+$(".slide-p-up").click(function () {
+  $("#slide-c-l").slideUp();
+});
+
+/* -------------------------------- Animations -------------------------------- */
+
+// For animations, you can only change CSS properties with numeric values like margin, width, height, opacity etc.
+
+// Animate Grey
+$("#btn-anim-grey").click(function () {
+  $(".grey-box").animate({ left: "250px" });
+});
+
+// Animate Black
+/* Jquery allows for chaining up different methods */
+$("#btn-anim-black").click(function () {
+  $(".black-box")
+    .animate({
+      left: "250px",
+      opacity: "0.5",
+      height: "200px",
+      width: "200px",
+    })
+    .slideUp()
+    .slideDown();
+});
+
+// Animate with relative values - each event makes the div bigger
+
+$("#btn-anim-grey").click(function () {
+  $(".grey-box").animate({ left: "250px", width: "+=50px", height: "+=50px" });
+});
+
+// remove h1 header element
+$("#main-heading").remove();

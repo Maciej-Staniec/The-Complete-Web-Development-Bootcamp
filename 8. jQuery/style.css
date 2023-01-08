@@ -1,10 +1,15 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: lightpink;
   margin: 0;
 }
 
-button {
-  margin: 10px 0;
+.hidden {
+  display: none;
 }
 
 .big-title {
@@ -20,10 +25,10 @@ button {
   background-color: violet;
 }
 
-.set {
+.grandparent {
   background-color: rgb(238, 146, 54);
   /* padding: 10% 10%; */
-  margin: 10% 0;
+  height: 500px;
   position: relative;
 }
 
@@ -31,7 +36,6 @@ button {
   background-color: aquamarine;
   height: 400px;
   position: relative;
-  margin: 10% 0;
   /* padding: 0 40px; */
 }
 
@@ -45,16 +49,19 @@ button {
   margin: 0;
 }
 
+/* --------------------------- div boxes --------------------------- */
 .red-box {
   background-color: red;
   left: 0;
   top: 0;
 }
+
 .green-box {
   background-color: green;
   left: 0;
   bottom: 0;
 }
+
 .blue-box {
   background-color: blue;
   right: 0;
@@ -67,6 +74,92 @@ button {
   bottom: 0;
 }
 
-.hidden {
+.grey-box {
+  position: relative;
+  background-color: grey;
+  left: 0;
+  top: 0;
+}
+
+.black-box {
+  position: relative;
+  background-color: black;
+  left: 0;
+  /* top: 30px; */
+}
+
+/* --------------------------- buttons --------------------------- */
+.btn-fade-out {
+  position: relative;
+  left: 0;
+  top: 100px;
+  transform: translateY(50%);
+}
+
+.btn-fade-in {
+  position: relative;
+  top: 100px;
+  transform: translateY(50%);
+}
+
+.btn-fade-toggle {
+  margin: 0;
+  position: absolute;
+  right: 200px;
+  top: 100px;
+  transform: translateY(-50%);
+}
+
+.btn-fade-to {
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 100px;
+  transform: translate(-50%, -50%);
+}
+
+.btn-anim {
+  margin: 20px 0 20px;
+}
+
+/* --------------------------- Slide Panel --------------------------- */
+.slide-panels {
+  margin: 5% 0 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.box {
+  min-width: 300px;
+  background-color: greenyellow;
+  border: solid 1px grey;
+  text-align: center;
+}
+
+.slide-upper-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-lower-panel {
+  display: flex;
+}
+
+.slide-c {
+  padding: 5%;
   display: none;
+}
+
+#slide-p {
+  cursor: pointer;
+}
+
+.slide-p-down {
+  min-width: 150px;
+}
+
+.slide-p-up {
+  min-width: 150px;
 }
