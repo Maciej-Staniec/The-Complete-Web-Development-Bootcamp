@@ -1,0 +1,68 @@
+body {
+  background-color: lightpink;
+  margin: 0;
+}
+
+button {
+  margin: 10px 0;
+}
+
+.big-title {
+  color: red;
+  font-family: cursive;
+  font-size: 7rem;
+}
+
+.jquery {
+  display: block;
+  width: 20%;
+  height: 20%;
+  background-color: violet;
+}
+
+.set {
+  background-color: rgb(238, 146, 54);
+  /* padding: 10% 10%; */
+  margin: 10% 0;
+  position: relative;
+}
+
+.parent {
+  background-color: aquamarine;
+  height: 400px;
+  position: relative;
+  margin: 10% 0;
+  /* padding: 0 40px; */
+}
+
+.child {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+}
+
+.move-div {
+  margin: 0;
+}
+
+.red-box {
+  background-color: red;
+  left: 0;
+  top: 0;
+}
+.green-box {
+  background-color: green;
+  left: 0;
+  bottom: 0;
+}
+.blue-box {
+  background-color: blue;
+  right: 0;
+  top: 0;
+}
+
+.yellow-box {
+  background-color: yellow;
+  right: 0;
+  bottom: 0;
+}
