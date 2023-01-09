@@ -6,7 +6,7 @@ Create a simon game - the game in which you need to memorize combination of butt
   - use while loop which ends when a wrong combination of buttons is pressed.
 2. The button gets randomly selected and indicated by the computer
     - find out how to pick a random value from the pool in an array.
-    - once the value gets picked, the computer has to show the whole combination each time we advance level.
+    - once the value gets picked, the computer has to show only that button
 3. When the right button is pressed, the computer selects and indicates another button
   a) game level is augmented
   - how to hold the actual combination of buttons?
