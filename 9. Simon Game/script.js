@@ -1,17 +1,12 @@
-// Selectors
-// const btnGreen = $("#green");
-// const btnRed = $("#red");
-// const btnYellow = $("#yellow");
-// const btnBlue = $("#blue");
 const mainHeader = $("#level-title");
 
-// variables
-
+// Variables
+// Those will be initialized in a function to stay DRY with the code.
 let level, userClickedPattern, gamePattern, started;
 const buttonColours = ["green", "red", "yellow", "blue"];
 // Functions
 
-// Initialize game with init values
+// Initialize game variables with init value
 const initFunc = function () {
   level = 0;
   userClickedPattern = [];
@@ -23,6 +18,7 @@ const initFunc = function () {
 initFunc();
 
 const playSound = function (name) {
+  // As we pass in the explicit name of the colour, we can pass that in to the Audio() function.
   const audio = new Audio(`./sounds/${name}.mp3`);
   audio.play();
 };
@@ -64,10 +60,12 @@ const checkAnswer = function (currentLevel) {
     }
     // If values from both array are different, it means that the user chose the wrong colour and the game is over.
   } else {
+    // Reset all game variables
     initFunc();
     playSound("wrong");
     $("body").addClass("game-over");
     mainHeader.text("Game Over, Press Any Key to Restart");
+    // We want to remove 'game-over' class after a while, not immediately. Otherwise, we won't see the red background color, when the game is over.
     setTimeout(() => {
       $("body").removeClass("game-over");
     }, 200);
@@ -78,15 +76,19 @@ const checkAnswer = function (currentLevel) {
 
 // Listen for button to get a colour
 $(".btn").click(function (e) {
+  // once the button is pressed, the event gets created and thanks to that, we can get its CSS ID property
   let userChosenColour = e.target.id;
+  // depending on what user chooses, the button gets animated and its assigned sound plays.
   animatePress(userChosenColour);
   playSound(userChosenColour);
+  // depending on what user chooses, it gets added to the user pattern array
   userClickedPattern.push(userChosenColour);
   checkAnswer(userClickedPattern.length - 1);
 });
 
 // Listen for a key to start the game
 $(window).keypress(function () {
+  // Once the started variable is set to true, pressing keyboard keys won't do anything to the game.
   if (!started) {
     nextSequence();
     started = true;
