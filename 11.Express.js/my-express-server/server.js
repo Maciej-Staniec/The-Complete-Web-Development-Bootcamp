@@ -38,15 +38,15 @@ app.get("/about", (req, res) => {
 
 // Time to add another subpage to test whether the nodemon utility works.
 
-// app.get("/hobbies", (req, res) => {
-//   res.send(
-//     "<li>Bushcraft</li><li>Programming</li><li>Technology</li><li>Psychology</li>"
-//   );
-// });
+app.get("/hobbies", (req, res) => {
+  res.send(
+    "<li>Bushcraft</li><li>Programming</li><li>Technology</li><li>Psychology</li>"
+  );
+});
 
-// app.get("/test", (req, res) => {
-//   res.send("Test page");
-// });
+app.get("/test", (req, res) => {
+  res.send("Test page");
+});
 
 // The following statement displays in the console on what port is the server listening on
 app.listen(port, () => {
