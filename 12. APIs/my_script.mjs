@@ -1,7 +1,7 @@
 "use strict";
 
-const express = require("express");
-const https = require("https");
+import express from "express";
+import { get } from "https";
 const app = express();
 
 const city = "Warrington";
@@ -16,68 +16,64 @@ let currentTemperatureURL;
 async function getGeoLocation() {
   return new Promise((resolve, reject) => {
     // Get latitude and longtitude of the desired city using https module and its get() method.
-    https
-      .get(geoURL, (response) => {
-        let data = "";
+    get(geoURL, (response) => {
+      let data = "";
 
-        // Check if we get a response from the server.
-        if (response.statusCode === 200) {
-          console.log("The request was successful");
-        } else {
-          console.log(
-            `The request failed with status code = ${response.statusCode}`
-          );
-        }
+      // Check if we get a response from the server.
+      if (response.statusCode === 200) {
+        console.log("The request was successful");
+      } else {
+        console.log(
+          `The request failed with status code = ${response.statusCode}`
+        );
+      }
 
-        // The https module is designed to receive data in chunks to reduce the overhead and speed up processing. Therefore, we have to add up each chunk of data to a variable each time it gets data response.
-        response.on("data", (chunk) => {
-          data += chunk;
-          console.log("Getting chunks of data");
-        });
-
-        // Once the data response is finished (The API sent all requested information), we want to parse this data into a javascript object (convert to a javascript object), so that we can access data as parameters.
-        response.on("end", () => {
-          try {
-            const geoData = JSON.parse(data);
-            resolve(geoData);
-          } catch (error) {
-            reject(error);
-          }
-        });
-      })
-      .on("error", (error) => {
-        reject(error);
+      // The https module is designed to receive data in chunks to reduce the overhead and speed up processing. Therefore, we have to add up each chunk of data to a variable each time it gets data response.
+      response.on("data", (chunk) => {
+        data += chunk;
+        console.log("Getting chunks of data");
       });
+
+      // Once the data response is finished (The API sent all requested information), we want to parse this data into a javascript object (convert to a javascript object), so that we can access data as parameters.
+      response.on("end", () => {
+        try {
+          const geoData = JSON.parse(data);
+          resolve(geoData);
+        } catch (error) {
+          reject(error);
+        }
+      });
+    }).on("error", (error) => {
+      reject(error);
+    });
   });
 }
 
 async function getTemperature() {
   return new Promise((resolve, reject) => {
-    https
-      .get(currentTemperatureURL, (response) => {
-        if (response.statusCode === 200) {
-          console.log("The request was successful");
-        } else {
-          console.log(
-            `The request failed with status code = ${response.statusCode}`
-          );
-        }
-        let data = "";
-        response.on("data", (dataChunk) => {
-          data += dataChunk;
-        });
-        response.on("end", () => {
-          try {
-            const tempData = JSON.parse(data);
-            resolve(tempData);
-          } catch {
-            reject(error);
-          }
-        });
-      })
-      .on("error", (error) => {
-        reject(error);
+    get(currentTemperatureURL, (response) => {
+      if (response.statusCode === 200) {
+        console.log("The request was successful");
+      } else {
+        console.log(
+          `The request failed with status code = ${response.statusCode}`
+        );
+      }
+      let data = "";
+      response.on("data", (dataChunk) => {
+        data += dataChunk;
       });
+      response.on("end", () => {
+        try {
+          const tempData = JSON.parse(data);
+          resolve(tempData);
+        } catch {
+          reject(error);
+        }
+      });
+    }).on("error", (error) => {
+      reject(error);
+    });
   });
 }
 
