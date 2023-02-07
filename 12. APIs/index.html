@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Weather</title>
+    <title>Weather Forecast</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>Weather Forecast</h1>
-
+    <input type="text" placeholder="Enter city name" />
+    <select name="units" id="units">
+      <option value="standard">Standard</option>
+      <option value="imperial">Imperial</option>
+      <option value="metric">Metric</option>
+    </select>
+    <button>Get weather</button>
     <script src="script.js"></script>
   </body>
 </html>
