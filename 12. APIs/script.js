@@ -55,8 +55,39 @@ app.get("/", async (req, res) => {
   });
 
   const temperature = Math.round(tempData.main.temp);
+  const iconURL = `http://openweathermap.org/img/wn/${tempData.weather[0].icon}@2x.png`;
 
-  res.send(`The temperature in ${city} is ${temperature}°C`);
+  // const icon = await new Promise((resolve, reject) => {
+  //   let data = "";
+
+  //   https.get(iconURL, (response) => {
+  //     response.on("data", (chunk) => {
+  //       data += chunk;
+  //     });
+
+  //     response.on("end", () => {
+  //       resolve(data);
+  //     });
+  //     response.on("error", () => {
+  //       reject(error);
+  //     });
+  //   });
+  // });
+  console.log(iconURL);
+  res.write(`<h1>The temperature in ${city} is ${temperature} &degC.</h1>`);
+  res.write(`<h3>Weather description: ${tempData.weather[0].description}`);
+  res.write(
+    `<p>The visibility is ${tempData.visibility > 5000 ? "good" : "bad"}.</p>`
+  );
+  res.write(
+    `<p>Today's pressure is ${
+      tempData.main.pressure
+    } hPa, and the wind speed is ${
+      tempData.wind.speed < 5 ? "low" : "high"
+    }.</p>`
+  );
+  res.write(`<img src="${iconURL}"/>`);
+  res.send();
 });
 
 const port = 3000;
