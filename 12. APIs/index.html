@@ -7,13 +7,16 @@
     <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <input type="text" placeholder="Enter city name" />
-    <select name="units" id="units">
-      <option value="standard">Standard</option>
-      <option value="imperial">Imperial</option>
-      <option value="metric">Metric</option>
-    </select>
-    <button>Get weather</button>
+    <form action="/weather" method="post">
+      <input type="text" name="city" placeholder="Enter city name" />
+      <select name="units">
+        <option value="standard">Standard</option>
+        <option value="imperial">Imperial</option>
+        <option value="metric">Metric</option>
+      </select>
+      <button type="submit">Get weather</button>
+    </form>
+
     <script src="script.js"></script>
   </body>
 </html>
