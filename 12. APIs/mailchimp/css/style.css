@@ -43,9 +43,8 @@ input {
 }
 
 input:focus {
-  outline-color: #004e00;
+  outline-color: #b0b0ff;
   outline-width: 1px;
-  /* box-shadow: 0 0 3px #004e00; */
 }
 
 #signup-btn {
