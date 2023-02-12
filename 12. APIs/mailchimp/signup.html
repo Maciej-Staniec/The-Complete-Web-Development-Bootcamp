@@ -3,13 +3,13 @@
   <head>
     <title>Mailing list</title>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap"
       rel="stylesheet" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
     <img
@@ -19,9 +19,10 @@
     <h1>Sign up to my newsletter!</h1>
     <form action="/" method="post">
       <input type="text" name="fname" placeholder="First Name" />
-      <input type="text" name="lname" placeholder="Last Name" />
+      <input id="middle" type="text" name="lname" placeholder="Last Name" />
       <input type="text" name="email" placeholder="Email" />
       <button id="signup-btn" type="submit">Sign me up!</button>
+      <p>&copy; The Game Brewery</p>
     </form>
     <script src="app.js"></script>
   </body>

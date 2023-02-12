@@ -15,6 +15,9 @@ body {
 form {
   display: flex;
   flex-direction: column;
+  width: 22%;
+  min-width: 272px;
+  text-align: center;
 }
 
 h1 {
@@ -23,16 +26,57 @@ h1 {
   margin-bottom: 20px;
 }
 
+p {
+  font-size: 0.9rem;
+}
+
+input,
+#signup-btn {
+  height: 40px;
+  font-size: 1rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+input {
+  padding-left: 10px;
+}
+
+input:focus {
+  outline-color: #004e00;
+  outline-width: 1px;
+  /* box-shadow: 0 0 3px #004e00; */
+}
+
+#signup-btn {
+  margin: 5px 0 0;
+  background-color: #5353ff;
+  color: white;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+#signup-btn:hover,
+#signup-btn:active {
+  background-color: white;
+  color: #5353ff;
+  border: 1px solid #5353ff;
+}
+
+#signup-btn:active {
+  box-shadow: 0 0 3px 1px #5353ff;
+}
+
+#middle {
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
 .logo {
-  /* height: 15%; */
   width: 7%;
   min-width: 50px;
 }
 
-form {
-  width: 22%;
-  min-width: 272px;
-}
-
-#signup-btn {
+::placeholder {
+  color: #c2c2c2;
 }
