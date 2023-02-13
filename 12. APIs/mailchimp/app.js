@@ -7,6 +7,9 @@ const path = require("path");
 
 const app = express();
 
+// const mandrillApiKey = 'md-5w5WhX8I1E6LTUo5vPz8qA'
+const apiKey = "25bcbfb7de61583887d32228c49ece7f-us17";
+
 // If we don't use the following code, it won't load css file.
 app.use(express.static(path.join(__dirname)));
 
