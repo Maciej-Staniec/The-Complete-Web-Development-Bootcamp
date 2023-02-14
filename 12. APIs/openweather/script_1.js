@@ -6,7 +6,7 @@ const https = require("https");
 const app = express();
 
 app.get("/", async (req, res) => {
-  const apiKey = "5535ef8ca0e0e33a597c83028393f925";
+  const apiKey = "your_api_key";
   const city = "London";
   const countryCode = "GB";
   const geoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${countryCode}&limit=1&appid=${apiKey}`;

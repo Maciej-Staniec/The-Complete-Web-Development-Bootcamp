@@ -4,11 +4,19 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const https = require("https");
 const path = require("path");
+const mailchimp = require("@mailchimp/mailchimp_marketing");
 
 const app = express();
 
-// const mandrillApiKey = 'md-5w5WhX8I1E6LTUo5vPz8qA'
-const apiKey = "25bcbfb7de61583887d32228c49ece7f-us17";
+mailchimp.setConfig({
+  apiKey: "your_api_key",
+  server: "us17",
+});
+
+async function run() {
+  const response = await mailchimp.ping.get();
+  console.log(response);
+}
 
 // If we don't use the following code, it won't load css file.
 app.use(express.static(path.join(__dirname)));
@@ -20,7 +28,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-  console.log(req.body);
+  res.send(req.body.fname, req.body.lname, req.body.email);
+  run();
 });
 
 app.listen(3000, () => {

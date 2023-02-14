@@ -9,7 +9,8 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // const units = ["standard", "imperial", "metric"];
-const apiKey = "5535ef8ca0e0e33a597c83028393f925";
+const apiKey = "your_api_key";
+
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");

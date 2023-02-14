@@ -10,7 +10,7 @@ const app = express();
 
 const city = "Warrington";
 const countryCode = "GB";
-const apiKey = "5535ef8ca0e0e33a597c83028393f925";
+const apiKey = "your_api_key";
 
 // This is the URL that we need to pass in the https.get() method, to get the latitude and longtitude of the city.
 const geoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${countryCode}&limit=1&appid=${apiKey}`;
