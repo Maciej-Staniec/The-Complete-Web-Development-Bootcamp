@@ -59,7 +59,7 @@ function httpsRequest(options) {
 }
 
 // The following function allows you to print the result of the promise. Thanks to that, our code can stay DRY.
-function printHttpRequest(options) {
+function printHttpsRequest(options) {
   httpsRequest(options)
     .then((data) => {
       console.log(".then((data)=>{}) callback function running");
@@ -85,5 +85,5 @@ const memberRequestOptions = {
   },
 };
 
-printHttpRequest(listOptions);
-printHttpRequest(memberRequestOptions);
+printHttpsRequest(listOptions);
+printHttpsRequest(memberRequestOptions);
