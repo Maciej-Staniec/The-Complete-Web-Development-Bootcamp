@@ -1,4 +1,4 @@
-// This script uses the mailchimp library.
+// A server, which handles the mailchimp subscription process using the mailchimp library.
 
 "use strict";
 

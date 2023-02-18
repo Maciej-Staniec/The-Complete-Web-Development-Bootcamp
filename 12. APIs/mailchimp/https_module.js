@@ -1,3 +1,5 @@
+// A server, which handles the mailchimp subscription process using a built-in https module.
+
 "use strict";
 
 const express = require("express");
