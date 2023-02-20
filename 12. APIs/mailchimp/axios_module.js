@@ -17,9 +17,46 @@ const app = express();
 app.use(express.static(path.join(__dirname)));
 app.use(express.urlencoded({ extended: true }));
 
+const listID = "your_list_ID";
+const apiKey = "your_api_key";
+
 // The app.get() method process all GET requests at the specified URL path, which is '/' in this case. The callback function (a route handler) is a function which gets executed, when the user make a GET request at the '/' URL path.
 app.get("/", (req, res) => {
-  res.sendFile(__dirname, "signup.html");
+  res.sendFile(__dirname + "/signup.html");
+});
+
+app.post("/", (req, res) => {
+  const data = {
+    email_address: req.body.email,
+    status: "subscribed",
+    merge_fields: {
+      FNAME: req.body.fname,
+      LNAME: req.body.lname,
+    },
+  };
+
+  const options = {
+    url: `https://us17.api.mailchimp.com/3.0/lists/${listID}/members`,
+    method: "POST",
+    auth: {
+      username: `apikey`,
+      password: `${apiKey}`,
+    },
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  axios(options)
+    .then((response) => {
+      console.log(response.data.status);
+      res.sendFile(__dirname + "/success.html");
+    })
+    .catch((error) => {
+      console.log(error.response.data);
+      res.sendFile(__dirname + "/failure.html");
+    });
 });
 
 app.listen(3000, () => {

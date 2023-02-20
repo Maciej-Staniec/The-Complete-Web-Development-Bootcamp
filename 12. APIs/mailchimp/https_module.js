@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 const path = require("path");
 app.use(express.static(path.join(__dirname)));
 
-const listID = `ec47cb7864`;
+const listID = `your_list_ID`;
 const apiKey = "your_API_key";
 
 const listOptions = {
