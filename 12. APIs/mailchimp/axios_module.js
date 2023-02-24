@@ -16,9 +16,9 @@ const app = express();
 // The reason why path.join() is used instead of just using __dirname directly is to ensure that the path is constructed correctly regardless of the operating system. Different operating systems use different path separators (e.g. / for Unix-based systems and \ for Windows), so path.join() is used to handle this automatically and ensure that the correct path separator is used.
 app.use(express.static(path.join(__dirname)));
 app.use(express.urlencoded({ extended: true }));
-
-const listID = "your_list_ID";
-const apiKey = "your_api_key";
+// ec47cb7864
+const listID = "your-list-ID";
+const apiKey = "your-API-KEY";
 
 // The app.get() method process all GET requests at the specified URL path, which is '/' in this case. The callback function (a route handler) is a function which gets executed, when the user make a GET request at the '/' URL path.
 app.get("/", (req, res) => {
@@ -63,6 +63,6 @@ app.get("/failure", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Listening on port 3000");
 });
